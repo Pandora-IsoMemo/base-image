@@ -82,7 +82,5 @@ RUN installPackage \
     splancs \
     StanHeaders \
     tripack \
-    webshot
 
-RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL); \
-                webshot::install_phantomjs()"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL)"
