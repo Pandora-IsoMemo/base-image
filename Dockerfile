@@ -81,6 +81,6 @@ RUN installPackage \
     sp \
     splancs \
     StanHeaders \
-    tripack \
+    tripack
 
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL)"
