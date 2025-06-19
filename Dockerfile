@@ -84,4 +84,4 @@ RUN installPackage \
     tripack
 
 RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL); \
-                remotes::install_github('hauselin/ollama-r@1.2.2')"
+                remotes::install_github('hauselin/ollama-r@v1.2.2')"
