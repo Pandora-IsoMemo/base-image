@@ -83,4 +83,5 @@ RUN installPackage \
     StanHeaders \
     tripack
 
-RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL)"
+RUN Rscript -e "install.packages('https://cran.r-project.org/src/contrib/Archive/nimble/nimble_0.12.2.tar.gz', repos = NULL); \
+                remotes::install_github('hauselin/ollama-r')"
