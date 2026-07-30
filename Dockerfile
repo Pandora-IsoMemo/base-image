@@ -30,14 +30,21 @@ RUN apt-get update \
 # add Pandora Repository
 RUN echo "options(repos = c(getOption('repos'), PANDORA = 'https://Pandora-IsoMemo.github.io/drat/'))" >> /usr/local/lib/R/etc/Rprofile.site
 
-# install R Packages
+# Install the Stan toolchain before BMSC
+RUN installPackage \
+    BH \
+    rstan \
+    rstantools \
+    StanHeaders
+
+RUN Rscript -e "rstantools::rstan_config()"
+
+# Install the remaining R packages
 RUN installPackage \
     alphahull \
     animation \
     abind \
     Bchron \
-    BH \
-    BMSC \
     car \
     coda \
     colourpicker \
@@ -73,14 +80,14 @@ RUN installPackage \
     reticulate \
     Rfast \
     rgl \
-    rstan \
-    rstantools \
     sgeostat \
     shinyMatrix \
     shinyWidgets \
     sp \
     splancs \
-    StanHeaders \
     tripack
+
+# Install BMSC only after the Stan toolchain is ready
+RUN installPackage BMSC
 
 RUN Rscript -e "remotes::install_github('hauselin/ollama-r@v1.2.2')"
