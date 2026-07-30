@@ -37,8 +37,6 @@ RUN installPackage \
     rstantools \
     StanHeaders
 
-RUN Rscript -e "rstantools::rstan_config()"
-
 # Install the remaining R packages
 RUN installPackage \
     alphahull \
