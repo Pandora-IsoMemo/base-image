@@ -85,6 +85,9 @@ RUN installPackage \
     splancs \
     tripack
 
+# check version of dependencies
+RUN Rscript -e "for (p in c('rstan', 'rstantools', 'StanHeaders', 'Rcpp', 'RcppEigen', 'BH')) cat(p, as.character(packageVersion(p)), '\n')"
+
 # Install BMSC only after the Stan toolchain is ready
 RUN installPackage BMSC
 
